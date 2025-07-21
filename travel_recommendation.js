@@ -1,5 +1,10 @@
 const resultContainer = document.querySelector(".results-container");
-
+const options = {
+  hour12: true,
+  hour: "numeric",
+  minute: "numeric",
+  second: "numeric",
+};
 document
   .querySelector(".search-bar")
   .addEventListener("submit", function (event) {
@@ -41,10 +46,23 @@ document
                                     alt="Maldives"
                                 />
                                 <div class="card-content">
-                                    <div class="card-title">${element.name}</div>
-                                    <div class="card-location">${element.description}</div>
-                                </div>
-                            </a>`;
+                                    <div class="card-title">${
+                                      element.name
+                                    }</div>
+                                    <div class="card-location">${
+                                      element.description
+                                    }</div>
+                                    <div class="card-time" data-timezone="${
+                                      element.timeZone
+                                    }">${new Date().toLocaleTimeString(
+              "en-US",
+              {
+                ...options,
+                timeZone: element.timeZone,
+              }
+            )}</div>
+                                    </div>
+                              </a>`;
           });
           resultContainer.innerHTML = resultHTML;
         });

@@ -87,6 +87,50 @@
       .social-icons a.twitter:hover svg {
         fill: #1da1f2;
       }
+      .results-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: flex-start;
+      }
+
+      .card {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        width: 250px;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        text-decoration: none;
+        color: inherit;
+        overflow: hidden;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+      }
+
+      .card-content {
+        padding: 15px;
+      }
+
+      .card-title {
+        font-size: 18px;
+        margin-bottom: 5px;
+        color: #009688;
+      }
+
+      .card-location {
+        font-size: 14px;
+        color: #666;
+      }
     </style>
   </head>
   <body>
@@ -95,24 +139,32 @@
         <a href="index.html">Home</a>
         <a href="about.html">About Us</a>
         <a href="contact.html">Contact Us</a>
-        <form
-          class="search-bar"
-          onsubmit="event.preventDefault(); /* Add search logic here */"
-        >
+        <form class="search-bar">
           <input
             type="text"
             id="searchInput"
             placeholder="Search recommendations"
           />
           <button type="submit">Search</button>
-          <button
-            type="reset"
-            onclick="document.getElementById('searchInput').value = '';"
-          >
+          <button class="btn-clear"">
             Clear
           </button>
         </form>
       </nav>
+      
+
+      <div class="results-container">
+        <!-- <a href="details.html?id=1" class="card">
+          <img
+            src="https://via.placeholder.com/250x150?text=Maldives"
+            alt="Maldives"
+          />
+          <div class="card-content">
+            <div class="card-title">Maldives</div>
+            <div class="card-location">Indian Ocean</div>
+          </div>
+        </a> -->
+      </div>
       <section class="intro-container">
         <h1>Welcome to Travel Recommendation</h1>
         <p>
@@ -162,5 +214,6 @@
         </div>
       </section>
     </main>
+    <script src="./travel_recommendation.js"></script>
   </body>
 </html>
